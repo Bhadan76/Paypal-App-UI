@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
       title: 'Paypal App',
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-
     );
   }
 }
