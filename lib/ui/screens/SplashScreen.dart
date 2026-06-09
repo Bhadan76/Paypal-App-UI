@@ -1,9 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:paypal_ui_app/OnboardingScreen.dart';
+import 'package:paypal_ui_app/ui/screens/OnboardingScreen.dart';
+import 'package:paypal_ui_app/ui/screens/welcomeScreen.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
+
+  static const String name='/';
 
 
   @override
@@ -16,12 +19,14 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3),(){
-      if(mounted){
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Onboardingscreen()));
-      }
-    });
+    _durationScreen();
   }
+Future<void> _durationScreen () async {
+  await Future.delayed(Duration(seconds: 3));
+  Navigator.pushReplacementNamed(context, Onboardingscreen.name);
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,15 +47,11 @@ class _SplashscreenState extends State<Splashscreen> {
           ),
           Center(
             child: Image.asset(
-              // height: 100,
-              //   width: 100,
+
                 'asset/Logo.png'),
           ),
-          SizedBox(height: 10),
-          Text('')
         ],
       ),
-
     );
   }
 }
